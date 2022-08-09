@@ -17,7 +17,7 @@ class AnimalSerializer(serializers.Serializer):
     # traits = TraitSerializer(many=True)
 
     def create(self, validated_data):
-        return Group.objects.create(**validated_data)
+        return Animal.objects.create(**validated_data)
         # group = validated_data.pop("group")
         # traits = validated_data.pop("traits")
 
