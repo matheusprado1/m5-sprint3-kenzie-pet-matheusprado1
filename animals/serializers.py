@@ -40,7 +40,6 @@ class AnimalSerializer(serializers.Serializer):
             if key in no_editable_keys:
                 raise KeyError
             else:
-
                 setattr(instace, key, value)
 
         instace.save()
