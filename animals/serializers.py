@@ -1,14 +1,14 @@
 from rest_framework import serializers
 from . models import Animal
-from groups.serializers import GroupSerializer
-from groups.models import Group
-from traits.serializers import TraitSerializer
-from traits.models import Trait
+# from groups.serializers import GroupSerializer
+# from groups.models import Group
+# from traits.serializers import TraitSerializer
+# from traits.models import Trait
 
 
 class AnimalSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField()
+    name = serializers.CharField(max_length=50)
     age = serializers.IntegerField()
     weight = serializers.FloatField()
     sex = serializers.CharField()
