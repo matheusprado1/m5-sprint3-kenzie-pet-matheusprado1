@@ -5,6 +5,7 @@ from groups.serializers import GroupSerializer
 from groups.models import Group
 from traits.serializers import TraitSerializer
 from traits.models import Trait
+import math
 
 
 class AnimalSerializer(serializers.Serializer):
@@ -15,9 +16,16 @@ class AnimalSerializer(serializers.Serializer):
     sex = serializers.ChoiceField(
         choices=Sex.choices, default=Sex.DEFAULT
     )
+    age_in_dog_years = serializers.SerializerMethodField()
 
     group = GroupSerializer()
     traits = TraitSerializer(many=True)
+
+    def get_age_in_dog_years(self, obj : Animal) -> int:
+
+        dog_age = obj.age
+        human_age = 16 * math.log(dog_age) + 31
+        return human_age
 
     def create(self, validated_data: dict):
 

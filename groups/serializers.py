@@ -6,5 +6,5 @@ class GroupSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=20)
     scientific_name = serializers.CharField(max_length=50)
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict):
         return Group.objects.create(**validated_data)

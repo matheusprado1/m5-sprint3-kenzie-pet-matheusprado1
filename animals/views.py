@@ -46,7 +46,7 @@ class AnimalViewById(APIView):
 
         return Response(serializer.data)
 
-    def delete(self, request, id):
+    def delete(self, request, id) -> Response:
         animal = get_object_or_404(Animal, id=id)
         animal_delet = animal.delete()
         return Response(animal_delet, status.HTTP_204_NO_CONTENT)
