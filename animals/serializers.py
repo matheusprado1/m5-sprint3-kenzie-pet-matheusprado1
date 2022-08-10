@@ -16,12 +16,12 @@ class AnimalSerializer(serializers.Serializer):
     sex = serializers.ChoiceField(
         choices=Sex.choices, default=Sex.DEFAULT
     )
-    age_in_dog_years = serializers.SerializerMethodField()
+    age_in_human_years = serializers.SerializerMethodField()
 
     group = GroupSerializer()
     traits = TraitSerializer(many=True)
 
-    def get_age_in_dog_years(self, obj : Animal) -> int:
+    def get_age_in_human_years(self, obj : Animal) -> int:
 
         dog_age = obj.age
         human_age = 16 * math.log(dog_age) + 31
