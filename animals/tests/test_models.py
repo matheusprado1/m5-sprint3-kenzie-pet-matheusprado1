@@ -1,7 +1,7 @@
+from animals.models import Animal
 from groups.models import Group
 from traits.models import Trait
 from django.test import TestCase
-from animals.models import Animal
 from animals.serializers import AnimalSerializer
 
 
