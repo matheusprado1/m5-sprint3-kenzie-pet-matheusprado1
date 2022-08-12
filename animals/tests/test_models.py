@@ -104,5 +104,3 @@ class AnimalModelTest(TestCase):
         animal = Animal.objects.get(id=self.animal_1.id)
         trait = Trait.objects.get(id=self.animal_1.traits.first().id)
         self.assertEquals(animal.traits.first(), trait)
-
-
